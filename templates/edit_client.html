@@ -1,6 +1,7 @@
+
 <!DOCTYPE html>
 <html>
-<head><title>Editar Cliente - MikroWISP</title></head>
+<head><title>Editar Cliente</title></head>
 <body>
     <h2>Editar Cliente</h2>
     <form method="POST">
@@ -11,7 +12,7 @@
             <option value="activo" {% if client[3] == 'activo' %}selected{% endif %}>Activo</option>
             <option value="suspendido" {% if client[3] == 'suspendido' %}selected{% endif %}>Suspendido</option>
         </select><br>
-        <button type="submit">Guardar Cambios</button>
+        <button type="submit">Actualizar</button>
     </form>
 </body>
 </html>
