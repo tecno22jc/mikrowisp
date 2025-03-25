@@ -63,6 +63,25 @@ def delete_client(id):
     conn.close()
     return redirect(url_for('home'))
 
+@app.route('/edit/<int:id>', methods=['GET', 'POST'])
+def edit_client(id):
+    conn = sqlite3.connect('database.db')
+    c = conn.cursor()
+
+    if request.method == 'POST':
+        name = request.form['name']
+        service = request.form['service']
+        status = request.form['status']
+        c.execute('UPDATE clients SET name = ?, service = ?, status = ? WHERE id = ?', (name, service, status, id))
+        conn.commit()
+        conn.close()
+        return redirect(url_for('home'))
+
+    c.execute('SELECT * FROM clients WHERE id = ?', (id,))
+    client = c.fetchone()
+    conn.close()
+    return render_template('edit_client.html', client=client)
+
 if __name__ == '__main__':
     init_db()
     import os
