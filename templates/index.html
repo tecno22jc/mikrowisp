@@ -1,18 +1,13 @@
-
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Clientes - MikroWISP</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
-<body>
+<head><title>Clientes - MikroWISP</title></head>
+<body style="font-family:sans-serif;background:#ffffff;padding:30px;">
     <h2>Lista de Clientes</h2>
-    <a href="{{ url_for('add_client') }}">Agregar Cliente</a> | 
+    <a href="{{ url_for('add_client') }}">Agregar Cliente</a> |
     <a href="{{ url_for('logout') }}">Cerrar sesión</a>
     <ul>
         {% for client in clients %}
-        <li>{{ client[1] }} - {{ client[2] }} - {{ client[3] }} 
-            <a href="{{ url_for('edit_client', id=client[0]) }}">Editar</a> | 
+        <li>{{ client[1] }} - {{ client[2] }} - {{ client[3] }}
             <a href="{{ url_for('delete_client', id=client[0]) }}">Eliminar</a>
         </li>
         {% endfor %}

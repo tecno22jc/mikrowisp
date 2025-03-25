@@ -1,20 +1,12 @@
-
 <!DOCTYPE html>
 <html>
 <head><title>Login - MikroWISP</title></head>
-<body>
+<body style="font-family:sans-serif;background:#f2f2f2;padding:30px;">
     <h2>Login</h2>
     <form method="POST">
-        Usuario: <input type="text" name="username"><br>
-        Contraseña: <input type="password" name="password"><br>
+        Usuario: <input type="text" name="username"><br><br>
+        Contraseña: <input type="password" name="password"><br><br>
         <button type="submit">Entrar</button>
     </form>
-    {% with messages = get_flashed_messages() %}
-        {% if messages %}
-            <ul>{% for message in messages %}
-                <li>{{ message }}</li>
-            {% endfor %}</ul>
-        {% endif %}
-    {% endwith %}
 </body>
 </html>
